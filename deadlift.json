@@ -1,0 +1,18 @@
+{
+    "angle" : {
+        "LEFT_HIP" : {
+            "points" : ["LEFT_KNEE" , "LEFT_HIP" , "LEFT_SHOULDER"],
+            "range" : [10 , 100]
+        },
+        "RIGHT_HIP" : {
+            "points" : ["LEFT_KNEE" , "LEFT_HIP" , "LEFT_SHOULDER"],
+            "range" : [10 , 100]
+        }
+    },
+    "distance" : {
+        "leg_dist" : {
+            "points" : ["LEFT_HEEL" , "RIGHT_HEEL"],
+            "range" : [0.0 , 0.5]
+        }
+    }
+}
