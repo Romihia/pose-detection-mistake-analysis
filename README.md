@@ -1,6 +1,6 @@
 # PoseSense: Real-time Pose Detection & Mistake Analysis
 
-This repository contains Python code for performing real-time pose detection on images and live video streams using MediaPipe and OpenCV. The implementation uses the MediaPipe Pose model to detect various body landmarks, enabling applications such as fitness tracking, motion analysis, and real-time pose assessment.
+This repository contains Python code for performing real-time pose detection on images and live video streams using MediaPipe and OpenCV. The implementation uses the MediaPipe Pose model to detect various body landmarks, enabling applications like fitness tracking, motion analysis, and real-time pose assessment.
 
 ## Table of Contents
 
@@ -10,17 +10,15 @@ This repository contains Python code for performing real-time pose detection on 
 - [Usage](#usage)
    - [Pose Detection on Images](#pose-detection-on-images)
    - [Live Pose Detection](#live-pose-detection)
-   - [Image Analysis](#image-analysis)
-- [Demo](#demo)
 - [References](#references)
 
 ## Introduction
 
 Pose detection is the process of identifying and locating key points on a person's body, such as joints and extremities. It plays a crucial role in various computer vision applications, including human-computer interaction, augmented reality, and activity recognition.
 
-This project leverages the MediaPipe library to perform accurate and real-time pose detection. The code provides two main functionalities:
+This project leverages the MediaPipe library, developed by Google, to perform accurate and real-time pose detection. The code provided includes two main functionalities:
 
-1. Pose detection on static images: Given an image containing a person, the code detects and annotates the body landmarks on the image.
+1. Pose detection on static images: Given an image containing a person, the code detects and annotates the body landmarks on the image. This functionality is particularly useful for analyzing single images or image datasets.
 
 2. Live pose detection using the webcam: The code captures the live video stream from the webcam and performs real-time pose detection, providing immediate feedback on the detected body landmarks.
 
@@ -41,6 +39,8 @@ You can install the required libraries using the following command:
 pip install -r requirements.txt
 ```
 
+The `requirements.txt` file contains the list of required libraries and their versions.
+
 ## Installation
 
 To use this code, clone this repository to your local machine:
@@ -52,6 +52,8 @@ git clone https://github.com/Romihia/pose-detection-mistake-analysis.git
 ## Usage
 
 ### Pose Detection on Images
+
+
 
 To perform pose detection on a static image, follow these steps:
 
@@ -85,6 +87,19 @@ landmarks = pose_detector.detect_pose(image_path, display=True)
 
 The `display` parameter determines whether the annotated image and 3D plot of landmarks are shown.
 
+
+### Example of image activation:
+
+#### 3D analysis of the body
+![Alt Text](gif.gif)
+
+
+#### Image recognition on the image:
+
+![Alt Text](img.png)
+
+
+
 ### Live Pose Detection
 
 To perform real-time pose detection using the webcam, follow these steps:
@@ -105,44 +120,6 @@ pose_detector.detect_pose_live()
 
 The code will open a window showing the live feed from your webcam with the detected body landmarks and real-time feedback on posture.
 
-### Image Analysis
-
-The code also provides image analysis capabilities. You can analyze a series of images and obtain a report on potential mistakes in body pose.
-
-To perform image analysis, follow these steps:
-
-1. Prepare a JSON file with the desired restrictions for pose angles and distances. (Example: `deadlift.json`)
-
-2. Import the required modules (same as above).
-
-3. Initialize the `PoseDetection` class:
-
-```python
-pose_detector = PoseDetection()
-```
-
-4. Use the `detect_pose` method to perform pose detection on each image:
-
-```python
-image_folder = "path/to/your/images/folder"
-for image_filename in os.listdir(image_folder):
-    image_path = os.path.join(image_folder, image_filename)
-    landmarks = pose_detector.detect_pose(image_path, tag=image_filename, display=False)
-```
-
-5. Generate the analysis report:
-
-```python
-rest = Restriction(filename="path/to/your/restrictions.json", landmarks=pose_detector.csv_dataframe)
-report = rest.get_mistakes()
-print(report)
-```
-
-The report will contain information about potential mistakes in pose angles and distances, based on the provided JSON file.
-
-## Demo
-
-For a demonstration of the pose detection code, check out our [demo video](https://www.youtube.com/watch?v=your-video-url).
 
 ## References
 
