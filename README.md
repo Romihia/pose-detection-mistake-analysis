@@ -94,7 +94,7 @@ The `display` parameter determines whether the annotated image and 3D plot of la
 ![Alt Text](gif.gif)
 
 
-#### Image recognition on the image:
+#### Identifying the body position in the image
 
 ![Alt Text](img.png)
 
